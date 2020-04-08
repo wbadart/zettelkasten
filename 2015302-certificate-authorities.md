@@ -76,6 +76,7 @@ The resulting `.crt` file can now be installed on the site's server.
 ## See Also
 
 - https://kubernetes.io/docs/concepts/cluster-administration/certificates
+- https://blog.cloudflare.com/introducing-cfssl
 
 
 [01]: https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development
