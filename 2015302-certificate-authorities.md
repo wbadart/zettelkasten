@@ -73,5 +73,9 @@ $ openssl x509 -req -in dev.mergebot.com.csr -CA myCA.pem -CAkey myCA.key -CAcre
 
 The resulting `.crt` file can now be installed on the site's server.
 
+## See Also
+
+- https://kubernetes.io/docs/concepts/cluster-administration/certificates
+
 
 [01]: https://deliciousbrains.com/ssl-certificate-authority-for-local-https-development
