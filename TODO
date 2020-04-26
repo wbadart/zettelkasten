@@ -1,1 +1,16 @@
-Sorry, I still need to write this article.
+Sorry, I still need to write these article.
+
+# `rg TODO` as of
+# commit 2c5525a53e5ddd8dae9db686b09fafbe840f4f4d
+# Author: Will Badart <badart_william@bah.com>
+# Date:   Sun Apr 19 16:05:53 2020 -0700
+
+2015301-tls.md:[Certificate Authority (CA)](TODO) which vouches for the authenticity
+2016101-relude.md:[Haskell](TODO)'s Prelude is a module automatically imported into all
+2015502-kubernetes.md:[microservices](TODO)) so that sophisticated behaviors can be
+2015502-kubernetes.md:composed from those simpler components. [Containers](TODO) are one
+2016102-extensible-records.md:- [Row types](TODO)
+2016701-j.md:This makes use of J's support for tacit/ [point-free](TODO) form.
+2016701-j.md:An array's [rank](TODO) determines how a verb will act on it.
+2016701-j.md:TODO: make this Zettel better after your next pass at the [J Primer][01].
+2015202-pattern-synonyms.md:Proofs](TODO) as a way to pattern match against data with evidence
