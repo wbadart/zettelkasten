@@ -6,11 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: wbadart/neuron-builder
     steps:
     - uses: actions/checkout@v2
     - name: Build neuron site 🔧
-      run: /bin/neuron rib
+      uses: docker://sridca/neuron
+      with:
+        entrypoint: /bin/neuron
+        args: rib
     - name: Deploy to GitHub Pages 🚀
       uses: JamesIves/github-pages-deploy-action@3.5.8
       with:
