@@ -1,7 +1,8 @@
 ---
-title: Kubernetes
-date: 2020-04-10 18:25
+date: 2020-04-10T18:25
 ---
+
+# Kubernetes
 
 Kubernetes is a popular, open-source container orchestration
 framework, used to coordinate the running of containers and other

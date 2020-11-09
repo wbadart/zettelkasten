@@ -1,7 +1,10 @@
 ---
-title: Relational Algebra
-date: 2020-04-26 08:34
+date: 2020-04-26T08:34
+tags:
+- algebra
 ---
+
+# Relational Algebra
 
 Relational algebra is a notation for composing tables, primarily in ways that
 represent interesting queries in a concrete data base system.

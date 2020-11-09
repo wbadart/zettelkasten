@@ -1,7 +1,8 @@
 ---
-title: LDAP
-date: 2020-04-10 09:12
+date: 2020-04-10T09:12
 ---
+
+# LDAP
 
 The _Lightweight Directory Access Protocol_ (LDAP) is an open,
 general-purpose protocol for manipulating data stores, commonly used
