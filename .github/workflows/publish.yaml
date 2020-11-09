@@ -12,7 +12,7 @@ jobs:
     - uses: cachix/install-nix-action@v11
     - uses: workflow/nix-shell-action@v1
       with:
-        packages: neuron-notes
+        packages: haskellPackages.neuron
         script: |
           neuron --version
           neuron rib
