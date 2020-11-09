@@ -1,0 +1,24 @@
+name: "Publish Neuron site"
+on:
+  # Run only when pushing to master branch
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v11
+    - uses: workflow/nix-shell-action@v1
+      with:
+        packages: neuron-notes
+        script: |
+          neuron --version
+          neuron rib
+    - name: Deploy to GitHub Pages 🚀
+      uses: JamesIves/github-pages-deploy-action@3.5.8
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: .neuron/output
