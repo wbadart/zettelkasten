@@ -15,11 +15,12 @@ recursive function separately from the mechanical specifics of recursing.
 |------|------------------|------
 | [[[234411dc]]] | `foldr` | F-algebra: `f a -> a`
 | [[[4bb5719e]]] | `unfoldr` | F-coalgebra: `a -> f a`
-| paramorphism | fold with access to current "node" | R-algebra: `f (Fix f, a) -> a`
-| apomorphism | terminable unfold | R-coalgebra: `a -> f (Fix f \| a)`
-| histomorphism | history-preserving fold | CV-algebra: `f (Attr f a) -> a`
+| [[[8e03ceba]]] | primitive recursion | R-algebra: `f (Fix f, a) -> a`
+| [[[b48c52f0]]] | primitive corecursion (terminable unfold) | R-coalgebra: `a -> f (Fix f \| a)`
+| [[[3b8573c9]]] | fold with helper algebra | two F-algebras (one taking helper data)
+| [[[c5c9b27a]]] | produce then consume | an F-coalgebra and an F-algebra
+| [[[59fc6bcf]]] | history-preserving fold | CV-algebra: `f (Attr f a) -> a`
 | futumorphism | forward-info-passing unfold | CV-coalgebra: `a -> f (CoAttr f a)`
-| hylomorphism | produce then consume | an F-coalgebra and an F-algebra
 | (chronomorphism) | produce then consume (w/ extra capability) | a CV-coalgebra and a CV-algebra
 
 where
@@ -37,7 +38,8 @@ data Coattr f a
   | Manual (f (CoAttr f a))
 ```
 
-Table distilled from Patrick Thomson's [series] on recursion schemes.
+Table distilled from Patrick Thomson's [series] on recursion schemes and [Tim
+Williams]' talk.
 
 [series]: https://blog.sumtypeofway.com/posts/recursion-schemes-part-6.html
 
@@ -51,7 +53,14 @@ Table distilled from Patrick Thomson's [series] on recursion schemes.
 - [_Recursion Schemes from Comonads_][comonad]: introduces a general
     formulation of recursion schemes based on comonads. The original bunch are
     recovered by instantiating the general pattern at a particular comonad
+- [_Origami Programming_][origami]: TODO
 
 [fp]: https://ris.utwente.nl/ws/portalfiles/portal/6142047/db-utwente-40501F46.pdf
 [corecursion]: https://www.researchgate.net/publication/2237199_Primitive_CoRecursion_and_Course-of-Value_CoIteration_Categorically
 [comonad]: https://www.researchgate.net/publication/220673192_Recursion_Schemes_from_Comonads
+[origami]: https://www.cs.ox.ac.uk/jeremy.gibbons/publications/origami.pdf
+
+## See Also
+
+- <http://ekmett.github.io/reader/2009/recursion-schemes/index.html>
+- <https://jtobin.io/practical-recursion-schemes>
