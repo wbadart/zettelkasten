@@ -16,8 +16,8 @@ recursive function separately from the mechanical specifics of recursing.
 | [[[234411dc]]] | `foldr` | F-algebra: `f a -> a`
 | [[[4bb5719e]]] | `unfoldr` | F-coalgebra: `a -> f a`
 | [[[8e03ceba]]] | primitive recursion | R-algebra: `f (Fix f, a) -> a`
-| [[[b48c52f0]]] | primitive corecursion (terminable unfold) | R-coalgebra: `a -> f (Fix f \| a)`
-| [[[3b8573c9]]] | fold with helper algebra | two F-algebras (one taking helper data)
+| [[[b48c52f0]]] | primitive corecursion | R-coalgebra: `a -> f (Fix f \| a)`
+| [[[3b8573c9]]] | fold with helper algebra | helper algebra and main algebra
 | [[[c5c9b27a]]] | produce then consume | an F-coalgebra and an F-algebra
 | [[[59fc6bcf]]] | history-preserving fold | CV-algebra: `f (Attr f a) -> a`
 | futumorphism | forward-info-passing unfold | CV-coalgebra: `a -> f (CoAttr f a)`
@@ -42,6 +42,7 @@ Table distilled from Patrick Thomson's [series] on recursion schemes and [Tim
 Williams]' talk.
 
 [series]: https://blog.sumtypeofway.com/posts/recursion-schemes-part-6.html
+[Tim Williams]: https://www.youtube.com/watch?v=Zw9KeP3OzpU
 
 ## Relevant Papers
 

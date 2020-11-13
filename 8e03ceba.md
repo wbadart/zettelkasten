@@ -8,8 +8,10 @@ tags:
 
 A [recursion scheme](ded70ad5.md) that tears down a recursive structure using
 an algebra that can view some of the original structure. From the Greek
-"[παρά]" for "beside." Like a [[234411dc]] that can see some context (that
-context being ["the most recent state of the computation"][jtobin]).
+"[παρά]" for "beside" (as in "parallel"). Like a [[234411dc]], a paramorphism
+can see the current result of bottom-up recursion, but can also see the
+"argument" or "view of the original structure" that got the computation to that
+point.
 
 [παρά]: https://en.wiktionary.org/wiki/%CF%80%CE%B1%CF%81%CE%AC
 [fg]: https://ekmett.github.io/reader/2009/recursion-schemes/index.html
@@ -36,10 +38,9 @@ para' :: Functor f => RAlgebra' f a -> Fix f -> a
 para' alg t = out t & fmap (para' alg) & alg t
 ```
 
-Ed Kmett's [recursion schemes field guide][fg] (and others) characterizes
-paramorphism as primitive recursion. As an example, we can see how expressing
-factorial as a paramorphism aligns with the typical inductive definition.
-Given:
+Ed Kmett's [recursion schemes field guide][fg] characterizes paramorphism as
+primitive recursion. As an example, we can see how expressing factorial as a
+paramorphism aligns with the typical inductive definition. Given:
 
 ```haskell
 data NatF f = ZeroF | SuccF f deriving Functor
@@ -70,6 +71,14 @@ $$
 $$
 
 In the inductive case of the [[0f4cc4fe]] definition, `fac` is the recursive
-result "so far" and `n` is the argument that was used to compute it.
+result "so far" and `n` is the argument that was used to compute it (i.e.
+`factorial n == fac`).
 
 _Note:_ the code above uses [[2ea77077]] and [[e3da8e1f]].
+
+In the above example, I fold inductively-defined `Nat`s into `Int`s. The
+[`recursion-schemes`][kmett] package uses the [`Base`][base] type family to
+make this more natural.
+
+[kmett]: https://hackage.haskell.org/package/recursion-schemes
+[base]: https://hackage.haskell.org/package/recursion-schemes-5.2.1/docs/Data-Functor-Foldable.html#t:Base
