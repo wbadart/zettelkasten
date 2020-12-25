@@ -26,6 +26,20 @@ Also, from the [Pyro docs]:
 
 [Pyro docs]: http://pyro.ai/examples/intro_part_ii.html#Conditioning
 
+In practice, probabilistic programs are often written in (embedded)
+[[921e7d70]]s (EDSLs) which add the required notions of randomness to the other
+features of the underlying host language. Examples include:
+
+- In Python
+  - [[[9762a43b]]]
+  - [[[df18affd]]]
+- In Haskell
+  - [[[4a9d7352]]]
+
+(The line between EDSL and library can sometimes be fuzzy. For example,
+[[[ae5314ad]]] is used much in the same way as Pyro or PyMC3, but markets
+itself as a library.)
+
 
 ## Resources
 
