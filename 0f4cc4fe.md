@@ -9,6 +9,7 @@ tags:
 ## Tools
 
 - [[[599a3157]]]
+- [[[5e46b102]]]
 
 ## Libraries & Packages
 
@@ -18,3 +19,9 @@ tags:
 ## Concepts
 
 - [[[d29cc27e]]]
+
+## Miscellaneous
+
+- <https://www.stephendiehl.com/posts/decade.html>
+- <https://www.47deg.com/blog/io-haskell>
+- <https://kowainik.github.io/posts/haskell-mini-patterns>
