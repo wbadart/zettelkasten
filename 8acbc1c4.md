@@ -11,11 +11,11 @@ represent interesting queries in a concrete data base system.
 
 ## Basic Operations
 
-- **σ**: selection. σ_P(R) gives the rows of relation R satisfying predicate P.
-- **π**: projection. π_c₁..cn(R) gives the relation R with only the listed
+- **σ**: selection. $σ_P(R)$ gives the rows of relation R satisfying predicate P.
+- **π**: projection. $π_{c_1..c_n}(R)$ gives the relation R with only the listed
   columns. π gives a set (note, project in SQL gives a bag/ multiset unless the
   column has `DISTINCT`).
-- **ρ**: rename. ρ_a/b(R) gives the relation R with column b renamed to a.
+- **ρ**: rename. $\rho_{a/b}(R)$ gives the relation R with column b renamed to a.
 
 For example, to get the names of students in an enrollment relation who are
 juniors from Washington, you could say
