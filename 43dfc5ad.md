@@ -35,6 +35,7 @@ features of the underlying host language. Examples include:
   - [[[df18affd]]]
 - In Haskell
   - [[[4a9d7352]]]
+- [[[8c2755e3]]]
 
 (The line between EDSL and library can sometimes be fuzzy. For example,
 [[[ae5314ad]]] is used much in the same way as Pyro or PyMC3, but markets
