@@ -9,14 +9,12 @@ framework, used to coordinate the running of containers and other
 resources.
 
 Many systems are implemented in terms of single-focus services (or
-[microservices](TODO)) so that sophisticated behaviors can be
-composed from those simpler components. [Containers](TODO) are one
-attractive runtime for these services, as they allow the service and
-its dependencies to be treated as a single unit. A container
-orchestration framework like Kubernetes manages the lifecycle
-(including scaling) of many such containers (thusly services) at
-once, as well as auxiliary resources like storage volumes and
-encrypted secrets.
+microservices) so that sophisticated behaviors can be composed from those
+simpler components. Containers are one attractive runtime for these services,
+as they allow the service and its dependencies to be treated as a single unit.
+A container orchestration framework like Kubernetes manages the lifecycle
+(including scaling) of many such containers (thusly services) at once, as well
+as auxiliary resources like storage volumes and encrypted secrets.
 
 ## Resources
 
