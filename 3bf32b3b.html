@@ -1,0 +1,281 @@
+<!DOCTYPE html><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, initial-scale=1" name="viewport" /><!--replace-start-0--><!--replace-start-5--><!--replace-start-8--><title>Deconstructing Lambdas - My Zettelkasten</title><!--replace-end-8--><!--replace-end-5--><!--replace-end-0--><link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Merriweather|Libre+Franklin|Roboto+Mono&amp;display=swap" rel="stylesheet" /><!--replace-start-1--><!--replace-start-4--><!--replace-start-7--><link href="https://raw.githubusercontent.com/srid/neuron/master/assets/neuron.svg" rel="icon" /><meta content="My notes on Chris Penner&#39;s talk, Deconstructing Lambdas. All code is his! (With some minor tweaks in some classes.)" name="description" /><meta content="Deconstructing Lambdas" property="og:title" /><meta content="My Zettelkasten" property="og:site_name" /><meta content="article" property="og:type" /><meta content="3bf32b3b" property="neuron:zettel-id" /><meta content="3bf32b3b" property="neuron:zettel-slug" /><script type="application/ld+json">[]</script><style type="text/css">body{background-color:#eeeeee !important;font-family:"Libre Franklin", serif !important}body .ui.container{font-family:"Libre Franklin", serif !important}body h1, h2, h3, h4, h5, h6, .ui.header, .headerFont{font-family:"Merriweather", sans-serif !important}body code, pre, tt, .monoFont{font-family:"Roboto Mono","SFMono-Regular","Menlo","Monaco","Consolas","Liberation Mono","Courier New", monospace !important}body div.z-index p.info{color:#808080}body div.z-index ul{list-style-type:square;padding-left:1.5em}body div.z-index .uplinks{margin-left:0.29999em}body .zettel-content h1#title-h1{background-color:rgba(33,133,208,0.1)}body nav.bottomPane{background-color:rgba(33,133,208,2.0e-2)}body div#footnotes{border-top-color:#2185d0}body p{line-height:150%}body img{max-width:100%}body .deemphasized{font-size:0.94999em}body .deemphasized:hover{opacity:1}body .deemphasized:not(:hover){opacity:0.69999}body .deemphasized:not(:hover) a{color:#808080 !important}body div.container.universe{padding-top:1em}body div.zettel-view ul{padding-left:1.5em;list-style-type:square}body div.zettel-view .pandoc .highlight{background-color:#ffff00}body div.zettel-view .pandoc .ui.disabled.fitted.checkbox{margin-right:0.29999em;vertical-align:middle}body div.zettel-view .zettel-content .metadata{margin-top:1em}body div.zettel-view .zettel-content .metadata div.date{text-align:center;color:#808080}body div.zettel-view .zettel-content h1{padding-top:0.2em;padding-bottom:0.2em;text-align:center}body div.zettel-view .zettel-content h2{border-bottom:solid 1px #4682b4;margin-bottom:0.5em}body div.zettel-view .zettel-content h3{margin:0px 0px 0.4em 0px}body div.zettel-view .zettel-content h4{opacity:0.8}body div.zettel-view .zettel-content div#footnotes{margin-top:4em;border-top-style:groove;border-top-width:2px;font-size:0.9em}body div.zettel-view .zettel-content div#footnotes ol > li > p:only-of-type{display:inline;margin-right:0.5em}body div.zettel-view .zettel-content aside.footnote-inline{width:30%;padding-left:15px;margin-left:15px;float:right;background-color:#d3d3d3}body div.zettel-view .zettel-content .overflows{overflow:auto}body div.zettel-view .zettel-content code{margin:auto auto auto auto;font-size:100%}body div.zettel-view .zettel-content p code, li code, ol code{padding:0.2em 0.2em 0.2em 0.2em;background-color:#f5f2f0}body div.zettel-view .zettel-content pre{overflow:auto}body div.zettel-view .zettel-content dl dt{font-weight:bold}body div.zettel-view .zettel-content blockquote{background-color:#f9f9f9;border-left:solid 10px #cccccc;margin:1.5em 0px 1.5em 0px;padding:0.5em 10px 0.5em 10px}body div.zettel-view .zettel-content.raw{background-color:#dddddd}body .ui.label.zettel-tag{color:#000000}body .ui.label.zettel-tag a{color:#000000}body nav.bottomPane ul.backlinks > li{padding-bottom:0.4em;list-style-type:disc}body nav.bottomPane ul.context-list > li{list-style-type:lower-roman}body .footer-version img{-webkit-filter:grayscale(100%);-moz-filter:grayscale(100%);-ms-filter:grayscale(100%);-o-filter:grayscale(100%);filter:grayscale(100%)}body .footer-version img:hover{-webkit-filter:grayscale(0%);-moz-filter:grayscale(0%);-ms-filter:grayscale(0%);-o-filter:grayscale(0%);filter:grayscale(0%)}body .footer-version, .footer-version a, .footer-version a:visited{color:#808080}body .footer-version a{font-weight:bold}body .footer-version{margin-top:1em !important;font-size:0.69999em}@media only screen and (max-width: 768px){body div#zettel-container{margin-left:0.4em !important;margin-right:0.4em !important}}body span.zettel-link-container span.zettel-link a{color:#2185d0;font-weight:bold;text-decoration:none}body span.zettel-link-container span.zettel-link a:hover{background-color:rgba(33,133,208,0.1)}body span.zettel-link-container span.extra{color:auto}body span.zettel-link-container.errors{border:solid 1px #ff0000}body span.zettel-link-container.errors span.zettel-link a:hover{text-decoration:none !important;cursor:not-allowed}body [data-tooltip]:after{font-size:0.69999em}body div.tag-tree div.node{font-weight:bold}body div.tag-tree div.node a.inactive{color:#555555}body .tree.flipped{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg)}body .tree{overflow:auto}body .tree ul.root{padding-top:0px;margin-top:0px}body .tree ul{position:relative;padding:1em 0px 0px 0px;white-space:nowrap;margin:0px auto 0px auto;text-align:center}body .tree ul::after{content:"";display:table;clear:both}body .tree ul:last-child{padding-bottom:0.1em}body .tree li{display:inline-block;vertical-align:top;text-align:center;list-style-type:none;position:relative;padding:1em 0.5em 0em 0.5em}body .tree li::before{content:"";position:absolute;top:0px;right:50%;border-top:solid 2px #cccccc;width:50%;height:1.19999em}body .tree li::after{content:"";position:absolute;top:0px;right:50%;border-top:solid 2px #cccccc;width:50%;height:1.19999em}body .tree li::after{right:auto;left:50%;border-left:solid 2px #cccccc}body .tree li:only-child{padding-top:0em}body .tree li:only-child::after{display:none}body .tree li:only-child::before{display:none}body .tree li:first-child::before{border-style:none;border-width:0px}body .tree li:first-child::after{border-radius:5px 0px 0px 0px}body .tree li:last-child::after{border-style:none;border-width:0px}body .tree li:last-child::before{border-right:solid 2px #cccccc;border-radius:0px 5px 0px 0px}body .tree ul ul::before{content:"";position:absolute;top:0px;left:50%;border-left:solid 2px #cccccc;width:0px;height:1.19999em}body .tree li div.forest-link{border:solid 2px #cccccc;padding:0.2em 0.29999em 0.2em 0.29999em;text-decoration:none;display:inline-block;border-radius:5px 5px 5px 5px;color:#333333;position:relative;top:2px}body .tree.flipped li div.forest-link{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg)}</style><!-- MathJax -->
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Prism.js -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<!-- Graphviz -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js" integrity="sha512-vnRdmX8ZxbU+IhA2gLhZqXkX1neJISG10xy0iP0WauuClu3AIMknxyDjYHEpEhi8fTZPyOCWgqUCnEafDB/jVQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js" integrity="sha512-1zKK2bG3QY2JaUPpfHZDUMe3dwBwFdCDwXQ01GrKSd+/l0hqPbF+aak66zYPUZtn+o2JYi1mjXAqy5mW04v3iA==" crossorigin="anonymous"></script>
+<script>
+window.addEventListener("load", function(){
+  let viz = new Viz();
+  for (let element of document.getElementsByClassName("graphviz")) {
+    let parent = element.parentNode
+    let pparent = parent.parentNode
+    viz.renderSVGElement(element.textContent)
+    .then(function(element) {
+      element.setAttribute("width", "100%")
+      pparent.replaceChild(element, parent)
+    });
+  }
+});
+</script>
+<!--replace-end-7--><!--replace-end-4--><!--replace-end-1--></head><body><div class="ui fluid container universe"><!--replace-start-2--><!--replace-start-3--><!--replace-start-6--><div class="ui text container" id="zettel-container" style="position: relative"><div class="zettel-view"><article class="ui raised attached segment zettel-content"><div class="pandoc"><h1 id="title-h1">Deconstructing Lambdas</h1><p>My notes on <a href="https://chrispenner.ca">Chris Penner</a>&#39;s talk, <a href="https://www.youtube.com/watch?v=xZmPuz9m2t0">Deconstructing Lambdas</a>. All code is his! (With some minor tweaks in some classes.)</p><h2 id="functions-compose">Functions Compose</h2><pre><code class="haskell language-haskell">g . f</code></pre><p>Run <code>f</code> on input, route output into input of <code>g</code>.</p><p>Encompassed by</p><pre><code class="haskell language-haskell">class Category k where
+  id  :: k x x
+  (.) :: k y z -&gt; k x y -&gt; k x z
+
+(&gt;&gt;&gt;) :: Category k =&gt; k x y -&gt; k y z -&gt; k x z
+(&gt;&gt;&gt;) = flip (.)</code></pre><p>E.g.</p><pre><code class="haskell language-haskell">f :: a -&gt; b
+g :: b -&gt; c
+f &gt;&gt;&gt; id &gt;&gt;&gt; g</code></pre><pre><code class="graphviz language-graphviz">digraph G {
+  rankdir=LR
+  a -&gt; b [label=&quot;f&quot;]
+  b -&gt; c [label=&quot;g&quot;]
+  b -&gt; b [label=&quot;id&quot;]
+}</code></pre><h3 id="combinator-examples">Combinator Examples</h3><pre><code class="haskell language-haskell">thrice :: Category k =&gt; k a a -&gt; k a a
+thrice k = k &gt;&gt;&gt; k &gt;&gt;&gt; k</code></pre><p>Now, given</p><pre><code class="haskell language-haskell">instance Category (-&gt;) where
+  id    = \x -&gt; x
+  g . f = \x -&gt; g (f x)</code></pre><p>We have</p><pre><code class="haskell language-haskell">add3 = thrice (+1)
+-- &gt;&gt;&gt; add3 10
+-- 13</code></pre><p>Let’s try with another <code>Category</code>:</p><pre><code class="haskell language-haskell">newtype JSFunc a b = JSFunc { renderJS :: Text }
+
+instance Category JSFunc where
+  id    = JSFunc &quot;(x =&gt; x)&quot;
+  g . f = JSFunc $ printf &quot;(x =&gt; %s(%s(x)))&quot; (renderJS g) (renderJS f)
+
+times10 :: JSFunc Int Int
+times10 = JSFunc &quot;(x =&gt; x * 10)&quot;
+
+times1000 :: JSFunc Int Int
+times1000 = thrice times10
+
+-- &gt;&gt;&gt; renderJS times1000
+-- &quot;(x =&gt; (x =&gt; x * 10)((x =&gt; (x =&gt; x * 10)((x =&gt; x * 10)(x)))(x)))&quot;</code></pre><h2 id="using-arguments">Using Arguments</h2><p>In Haskell, functions can ignore and copy arguments at will, but this isn’t the case in other categories, e.g. linear functions, Rust, electrical circuits.</p><pre><code class="haskell language-haskell">class Category k =&gt; Cartesian k where
+  -- In your category, how do you...
+  copy    :: k a (a, a)  -- take one thing, turn it into two
+  consume :: k a ()      -- take a thing and throw it away
+  first   :: k (a, b) a
+  second  :: k (a, b) b
+  -- Are first and second derived from copy/ consume?</code></pre><p>See <span class="zettel-link-container cf"><span class="zettel-link" title="2021-07-22T14:54"><a href="da8e3558">Cartesian Category</a></span></span>.</p><pre><code class="haskell language-haskell">instance Cartesian (-&gt;) where
+  copy    = \x      -&gt; (x, x)
+  consume = \_      -&gt; ()
+  first   = \(a, _) -&gt; a
+  second  = \(_, b) -&gt; b
+
+instance Cartesian JSFunc where
+  copy    = JSFunc &quot;(x        =&gt; [x, x])&quot;
+  consume = JSFunc &quot;(_        =&gt; null)&quot;
+  first   = JSFunc &quot;(([a, _]) =&gt; a)&quot;
+  second  = JSFunc &quot;(([_, b]) =&gt; b)&quot;</code></pre><h2 id="plumbing">Plumbing</h2><p>How do we pass arguments to various expressions in the function definition? Or, what’s really going on here/ how do we write this without the ability to apply functions to arguments:</p><pre><code class="haskell language-haskell">isPalindrome :: String -&gt; Bool
+isPalindrome s = reverse s == s
+
+-- ==&gt;
+
+isPalindrome :: String -&gt; Bool
+isPalindrome =
+  copy
+  &gt;&gt;&gt; (\(s, s&#39;) -&gt; (reverse s, s&#39;))  -- this right here; how to thread s through?
+  &gt;&gt;&gt; uncurry (==)</code></pre><p>Encode with <strong>strong</strong> category:</p><pre><code class="haskell language-haskell">class Category k =&gt; Strong k where  -- maybe can be merged into Cartesian?
+  apFst :: k a b -&gt; k (a, x) (b, x)
+  apSnd :: k a b -&gt; k (x, a) (x, b)</code></pre><p>E.g.</p><pre><code class="haskell language-haskell">f :: k a b
+apFst f</code></pre><pre><code class="graphviz language-graphviz">digraph {
+  &quot;(a, x)&quot; -&gt; &quot;(b, x)&quot; [label=&quot;f&quot;,headport=nw]
+  &quot;(a, x)&quot; -&gt; &quot;(b, x)&quot; [headport=ne]
+}</code></pre><p>Now we can write</p><pre><code class="haskell language-haskell">isPalindrome =
+  copy
+  &gt;&gt;&gt; apFst reverse
+  &gt;&gt;&gt; uncurry (==)  -- still a bit of a handwave for now</code></pre><p>Also:</p><pre><code class="haskell language-haskell">instance Strong (-&gt;) where
+  apFst f = \(a, x) -&gt; (f a, x)
+  apSnd f = \(x, a) -&gt; (x, f a)
+
+instance Strong JSFunc where
+  apFst f = JSFunc $ printf &quot;(([a, x]) =&gt; [%s(a), x])&quot; (renderJS f)
+  apSnd f = JSFunc $ printf &quot;(([x, a]) =&gt; [x, %s(a)])&quot; (renderJS f)</code></pre><h3 id="combinator-examples-1">Combinator Examples</h3><pre><code class="haskell language-haskell">(***) :: Strong k =&gt; k a a&#39; -&gt; k b b&#39; -&gt; k (a, b) (a&#39;, b&#39;)
+f *** g = apFst f &gt;&gt;&gt; apSnd g</code></pre><p>E.g.</p><pre><code class="haskell language-haskell">f :: a -&gt; a&#39;
+g :: b -&gt; b&#39;
+f *** g</code></pre><pre><code class="graphviz language-graphviz">digraph {
+  &quot;(a, b)&quot; -&gt; &quot;(a&#39;, b)&quot; [label=&quot;f&quot;,headport=nw]
+  &quot;(a, b)&quot; -&gt; &quot;(a&#39;, b)&quot; [headport=ne]
+  &quot;(a&#39;, b)&quot; -&gt; &quot;(a&#39;, b&#39;)&quot; [label=&quot;g&quot;,headport=ne]
+  &quot;(a&#39;, b)&quot; -&gt; &quot;(a&#39;, b&#39;)&quot; [headport=nw]
+}</code></pre><p>Or more succinctly:</p><pre><code class="graphviz language-graphviz">digraph {
+  &quot;(a, b)&quot; -&gt; &quot;(a&#39;, b&#39;)&quot; [label=&quot;f&quot;,headport=nw]
+  &quot;(a, b)&quot; -&gt; &quot;(a&#39;, b&#39;)&quot; [label=&quot;g&quot;,headport=ne]
+}</code></pre><p>Sort of an “apply both” or “parallel composition” (same idea as <code>(***)</code> from <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Control-Arrow.html#v:-42--42--42-"><code>Control.Arrow</code></a>).</p><pre><code class="haskell language-haskell">-- fanout
+(&amp;&amp;&amp;) :: Strong k =&gt; k x a -&gt; k x b -&gt; k x (a, b)
+f &amp;&amp;&amp; g = copy &gt;&gt;&gt; (f *** g)</code></pre><pre><code class="graphviz language-graphviz">digraph {
+  x -&gt; &quot;(x, x)&quot; [label=&quot;copy&quot;]
+  &quot;(x, x)&quot; -&gt; &quot;(a, b)&quot; [label=&quot;f&quot;,headport=nw]
+  &quot;(x, x)&quot; -&gt; &quot;(a, b)&quot; [label=&quot;g&quot;,headport=ne]
+}</code></pre><h2 id="primitives">Primitives</h2><p>Custom behavior unique to app or use case, not able to encode using totally general classes (or just too much work).</p><pre><code class="haskell language-haskell">reverse&#39; ::         k [a]    [a]
+eq       :: Eq a =&gt; k (a, a) Bool
+
+-- ==&gt;
+
+class MyPrim k where
+  reverse&#39; ::         k [a]    [a]
+  eq       :: Eq a =&gt; k (a, a) Bool
+
+instance MyPrim (-&gt;) where
+  reverse&#39; = reverse
+  eq       = (==)
+
+instance MyPrim JSFunc where
+  reverse&#39; = JSFunc &quot;(s =&gt; s.split(&#39;&#39;).reverse().join(&#39;&#39;))&quot;
+  eq       = JSFunc &quot;(([a, b]) =&gt; a === b)&quot;</code></pre><p>Now we can write</p><pre><code class="haskell language-haskell">isPalindrome :: (Cartesian k, Strong k, MyPrim k) =&gt; k String Bool
+isPalindrome =
+  copy
+  &gt;&gt;&gt; apFst reverse&#39;
+  &gt;&gt;&gt; eq
+
+-- &gt;&gt;&gt; isPalindrome &quot;asdf&quot;
+-- False
+-- &gt;&gt;&gt; isPalindrome &quot;racecar&quot;
+-- True
+-- &gt;&gt;&gt; renderJS isPalindrome
+-- &quot;(x =&gt; (x =&gt; (([a, b]) =&gt; a === b)((([a, x]) =&gt; [(s =&gt; s.split(&#39;&#39;).reverse().join(&#39;&#39;))(a), x])(x)))((x =&gt; [x, x])(x)))&quot;</code></pre><h2 id="functions-branch">Functions Branch</h2><p>UUT:</p><pre><code class="haskell language-haskell">collatzStep :: Int -&gt; Int
+collatzStep n =
+  if even n
+    then n `div` 2
+    else (3 * n) + 1</code></pre><p>Two bits of code (<code>n <code>div</code> 2</code>, <code>(3 * n) + 1</code>) that will never both be run; select one branch to run. Useful to know whether something will branch.</p><p>Model with coproducts:</p><pre><code class="haskell language-haskell">class Category k =&gt; Cocartesian k where
+  injectL :: k a            (Either a x)
+  injectR :: k a            (Either x a)
+  unify   :: k (Either a a) a
+  -- | Non-essential but useful (2 * a = a + a)
+  tag     :: k (Bool, a)    (Either a a)
+
+instance Cocartesian (-&gt;) where
+  injectL = \a -&gt; Left a
+  injectR = \a -&gt; Right a
+  unify   = \e -&gt;
+              case e of
+                Left a -&gt; a
+                Right a -&gt; a
+  tag     = \(b, a) -&gt;
+              if b
+                then Left a
+                else Right a
+
+instance Cocartesian JSFunc where
+  injectL = JSFunc &quot;(x =&gt; ({tag: &#39;left&#39;, value: x}))&quot;
+  injectR = JSFunc &quot;(x =&gt; ({tag: &#39;right&#39;, value: x}))&quot;
+  unify   = JSFunc &quot;(x =&gt; (x.value))&quot;
+  tag     = JSFunc &quot;(([b, x]) =&gt; ({tag: b ? &#39;left&#39; : &#39;right&#39;, value: x}))&quot;</code></pre><p>Running code on one branch or other (but may not need a separate class):</p><pre><code class="haskell language-haskell">class Category k =&gt; Choice k where
+  left&#39;  :: k a b -&gt; k (Either a x) (Either b x)
+  right&#39; :: k a b -&gt; k (Either x a) (Either x b)
+
+instance Choice (-&gt;) where
+  left&#39; f  = \e -&gt;
+               case e of
+                 Left a -&gt; Left (f a)
+                 Right x -&gt; Right x
+  right&#39; f = \e -&gt;
+               case e of
+                  Left x -&gt; Left x
+                  Right a -&gt; Right (f a)
+
+instance Choice JSFunc where
+  left&#39; (JSFunc f) = JSFunc $ printf &quot;(x =&gt; x.tag === &#39;left&#39; ? {tag: &#39;left&#39;, value: %s(x)} : x)&quot; f
+  right&#39; (JSFunc f) = JSFunc $ printf &quot;(x =&gt; x.tag === &#39;right&#39; ? {tag: &#39;right&#39;, value: %s(x)} : x)&quot; f</code></pre><p>E.g. <code>left&#39; f</code>:</p><pre><code class="graphviz language-graphviz">digraph {
+  &quot;Either a x&quot; -&gt; &quot;Either b x&quot; [headport=nw,label=&quot;f&quot;]
+  &quot;Either a x&quot; -&gt; &quot;Either b x&quot; [headport=ne]
+}</code></pre><h3 id="some-combinators">Some Combinators</h3><pre><code class="haskell language-haskell">(+++) :: Choice k =&gt; k a a&#39; -&gt; k b b&#39; -&gt; k (Either a b) (Either a&#39; b&#39;)
+f +++ g = left&#39; f &gt;&gt;&gt; right&#39; g</code></pre><p>(See <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Control-Arrow.html#v:-43--43--43-"><code>(+++)</code></a> from <code>ArrowChoice</code>.)</p><p>And importantly, fanin, which is basically your <code>if</code> expression:</p><pre><code class="haskell language-haskell">(|||) :: (Cocartesian k, Choice k) =&gt; k a r -&gt; k b r -&gt; k (Either a b) r
+f ||| g = f +++ g &gt;&gt;&gt; unify</code></pre><p>(See <a href="https://hackage.haskell.org/package/base-4.15.0.0/docs/Control-Arrow.html#v:-124--124--124-"><code>(|||)</code></a> from <code>ArrowChoice</code>.)</p><p>Back to UUT: must detect if input is even, then divide by two or do three times input plus one.</p><p>First off, need some numbers. Here’s one way: embedding Haskell <code>Int</code>s in the category:</p><pre><code class="haskell language-haskell">class Numeric k where
+  num     :: Int -&gt; k a Int
+  negate&#39; :: k Int Int
+  add     :: k (Int, Int) Int
+  mult    :: k (Int, Int) Int
+  div&#39;    :: k (Int, Int) Int
+  mod&#39;    :: k (Int, Int) Int
+
+instance Numeric (-&gt;) where
+  num     = const
+  negate&#39; = negate
+  add     = uncurry (+)
+  mult    = uncurry (*)
+  div&#39;    = uncurry div
+  mod&#39;    = uncurry mod
+
+instance Numeric JSFunc where
+  num n   = JSFunc $ printf &quot;(_ =&gt; (%d))&quot; n
+  negate&#39; = JSFunc &quot;(n =&gt; (-n))&quot;
+  add     = JSFunc &quot;(([x, y]) =&gt; (x + y))&quot;
+  mult    = JSFunc &quot;(([x, y]) =&gt; (x * y))&quot;
+  div&#39;    = JSFunc &quot;(([x, y]) =&gt; (x / y))&quot;
+  mod&#39;    = JSFunc &quot;(([x, y]) =&gt; (x % y))&quot;</code></pre><p>Helper:</p><pre><code class="haskell language-haskell">strong :: (Cartesian k, Strong k) =&gt; k (a, b) r -&gt; k a b -&gt; k a r
+strong f x = copy &gt;&gt;&gt; apSnd x &gt;&gt;&gt; f
+
+matchOn :: (Cartesian k, Strong k, Cocartesian k)
+        =&gt; k a Bool -&gt; k a (Either a a)
+matchOn p = copy &gt;&gt;&gt; apFst p &gt;&gt;&gt; tag</code></pre><p>Now for the parts of <code>collatzStep</code>:</p><pre><code class="haskell language-haskell">{-# LANGUAGE RankNTypes,ScopedTypeVariables #-}
+isEven :: forall k. (Numeric k, Cartesian k, Strong k, Choice k, MyPrim k)
+       =&gt; k Int Bool
+isEven = mod2 &gt;&gt;&gt; strong eq (num 0)   -- &quot;n `mod` 2 == 0&quot;
+ where
+  mod2 :: k Int Int
+  mod2 = strong mod&#39; (num 2)</code></pre><p>And the function itself:</p><pre><code class="haskell language-haskell">-- TODO: figure out `NaN` in JS output
+collatzStep :: (Cartesian k, Strong k, Cocartesian k, Numeric k, Choice k, MyPrim k)
+            =&gt; k Int Int
+collatzStep = matchOn isEven &gt;&gt;&gt; onEven ||| onOdd
+ where
+  onEven = strong div&#39; (num 2)
+  onOdd  = strong mult (num 3) &gt;&gt;&gt; strong add (num 1)</code></pre><h2 id="new-interpretations">New Interpretations</h2><pre><code class="haskell language-haskell">newtype Diagram a b = Diagram { toGraph :: State Graph InputOutputLinks }
+-- TODO: exercise: implement instances</code></pre><h2 id="functions-can-swap-args-around">Functions can swap args around</h2><pre><code class="haskell language-haskell">class Category k =&gt; Symmetric k where
+  swap   :: k (a, b) (b, a)
+  swapE  :: k (Either a b) (Either b a)
+  assoc  :: k (a, (b, c)) ((a, b), c)
+  assocE :: k (Either a (Either b c)) (Either (Either a b) c)</code></pre><p>See <a href="https://ncatlab.org/nlab/show/symmetric+monoidal+category">https://ncatlab.org/nlab/show/symmetric+monoidal+category</a></p><h2 id="functions-can-recurse">Functions can recurse</h2><pre><code class="haskell language-haskell">class Cochoice k where
+  unleft :: k (Either a c) (Either r c) -&gt; k a r</code></pre><p>The argument computation to <code>unleft</code> takes either an <code>a</code> or a <code>c</code> and produces either a <code>r</code> (result) or a <code>c</code> (intermediate result). Specifically, the computation <code>unleft f</code> must produce a <code>r</code>, but when <code>f</code> produces a <code>Right c</code>, there is no <code>r</code> to return, so it must call <code>f</code> again (with the <code>c</code>) to see if it can get a <code>r</code> this time.</p><p>E.g.</p><pre><code class="haskell language-haskell">f :: k (Either a c) (Either r c)
+unleft f</code></pre><pre><code class="graphviz language-graphviz">digraph {
+  a -&gt; &quot;Either r c&quot; [label=&quot;a&quot;]
+  &quot;Either r c&quot; -&gt; &quot;Either r c&quot; [label=&quot;c&quot;]
+  &quot;Either r c&quot; -&gt; r
+
+  subgraph cluster_0 {
+    label=&quot;f&quot;; labeljust=&quot;l&quot;
+    &quot;Either r c&quot;
+  }
+}</code></pre><p>Another loopy thing, fix-points:</p><pre><code class="haskell language-haskell">class Costrong k where
+  unfirst :: k (a, c) (b, c) -&gt; k a b</code></pre><p>Now we can model:</p><ul><li>composition</li><li>branching</li><li>copying</li><li>routing</li><li>recursion</li><li>fixpoints</li><li>swapping</li></ul><p>Can use these to encode classes for</p><ul><li><code>Reader</code></li><li><code>Writer</code></li><li><code>State</code></li><li><code>Cont</code> :)</li><li><code>IO</code></li></ul><p>Since these monads have category equivalents.</p><h2 id="functions-as-data-free-functions">Functions as Data/ Free Functions</h2><pre><code class="haskell language-haskell">{-# LANGUAGE GADTs #-}
+data FreeFunc p a b where
+  Id      :: FreeFunc p x x
+  Compose :: FreeFunc p x y -&gt; FreeFunc p y z -&gt; FreeFunc p x z
+  Copy    :: FreeFunc p x (x, x)
+  Consume :: FreeFunc p x ()
+  Fst     :: FreeFunc p (a, x) a
+  Snd     :: FreeFunc p (x, a) a
+  ApFst   :: FreeFunc p a b -&gt; FreeFunc p (a, x) (b, x)
+  ApSnd   :: FreeFunc p a b -&gt; FreeFunc p (x, a) (x, b)
+  -- etc.</code></pre><p>Basically a data constructor for each of the methods we’ve seen so far.</p><pre><code class="haskell language-haskell">instance Category (FreeFunc k) where
+  id  = Id
+  (.) = flip Compose
+
+instance Cartesian (FreeFunc k) where
+  copy    = Copy
+  consume = Consume
+  first   = Fst
+  second  = Snd
+
+instance Strong (FreeFunc k) where
+  apFst = ApFst
+  apSnd = ApSnd
+
+-- etc.</code></pre><h3 id="generalize-over-layer-of-primitives">Generalize over layer of primitives</h3><pre><code class="haskell language-haskell">data FreeFunc p a b where
+  -- ...
+  Lift :: p a b -&gt; FreeFunc p a b</code></pre><p>E.g.</p><pre><code class="haskell language-haskell">data Prims a b where
+  Reverse ::         Prims [a]    [a]
+  Eq      :: Eq a =&gt; Prims (a, a) Bool
+
+instance MyPrim (FreeFunc Prims) where
+  reverse&#39; = Lift Reverse
+  eq       = Lift Eq</code></pre><p>Now,</p><pre><code class="haskell language-haskell">{-# LANGUAGE QuantifiedConstraints,StandaloneDeriving #-}
+deriving instance Show (Prims a b)
+deriving instance (forall a b. Show (p a b)) =&gt; Show (FreeFunc p a b)
+
+-- &gt;&gt;&gt; show (isPalindrome @(FreeFunc Prims))
+-- &quot;Compose Copy (Compose (ApFst (Lift Reverse)) (Lift Eq))&quot;</code></pre><p>Not the most pretty or readable, but proves the concept of rendering/ transforming functions into visual representations. Also works for serialization (e.g. to JSON [trickier to do from JSON since we need to infer Haskell types from JSON values; would be easier w/ dependant types]).</p><p>With these approaches, we can now safely send code over the wire, since it can be fully inspected on either end. For example, we can simply not provide a primitive to delete files. We can check for totality/ termination by simply seeing whether the <code>Costrong</code> or <code>Cochoice</code> are used anywhere. Can optimize the categorical code (e.g. merging conditionals).</p><!-- TODO: chris says `strong`/`costrong` could imply nontermination, rather
+than `costrong`/`cochoice`; is this right? -->
+<h2 id="parting-ideas">Parting ideas</h2><ul><li>verilog</li><li>redstone</li><li>GPU</li><li>SMT/SAT solvers</li><li>probabilistic/ <span class="zettel-link-container cf"><span class="zettel-link" title="Zettel: Bayesian Statistics"><a href="73705039">bayesian</a></span></span> analysis (e.g. what are the odds of taking this branch?)</li><li>non-determinism</li><li>linear arrows</li><li>FRP</li><li>state machines</li><li>free parallelization</li></ul><p>Functions as data lets us analyze, optimize, serialize, etc. Syntax could use work, but transformation from conventional Haskell to categorical style is pretty mechanical so maybe the compiler could do it (a la <code>do</code>-notation).</p></div><div class="metadata"><div class="date" title="Zettel date"><time datetime="2021-07-22T12:52">2021-07-22</time></div></div></article><nav class="ui attached segment deemphasized backlinksPane" id="neuron-backlinks-pane"><h3 class="ui header">Backlinks</h3><ul class="backlinks"><li><span class="zettel-link-container cf"><span class="zettel-link" title="2021-07-22T14:54"><a href="da8e3558">Cartesian Category</a></span></span><ul class="context-list" style="zoom: 85%;"><li class="item"><div class="pandoc"><p>A cartesian category gives rise to “diagonal maps” <span class="math inline">\(\Delta_x : x \to x \otimes
+x\)</span> and “augmentations” <span class="math inline">\(e_x : x \to 1\)</span>. These can be interpreted as “duplicating” data and “deleting” data, corresponding to the definition of <code>Cartesian</code> from <span class="zettel-link-container cf"><span class="zettel-link" title="2021-07-22T12:52"><a href="3bf32b3b">Deconstructing Lambdas</a></span></span>:</p></div></li></ul></li><li><span class="zettel-link-container cf"><span class="zettel-link" title="2020-10-19T13:23"><a href=".">Index</a></span></span><ul class="context-list" style="zoom: 85%;"></ul></li></ul></nav><nav class="ui bottom attached icon compact inverted menu blue" id="neuron-nav-bar"><!--replace-start-9--><a class="item" href="." title="Home"><i class="home icon"></i></a><!--replace-end-9--><a class="right item" href="impulse" title="Open Impulse"><i class="wave square icon"></i></a></nav></div></div><!--replace-end-6--><!--replace-end-3--><!--replace-end-2--><div class="ui center aligned container footer-version"><div class="ui tiny image"><a href="https://neuron.zettel.page"><img alt="logo" src="https://raw.githubusercontent.com/srid/neuron/master/assets/neuron.svg" title="Generated by Neuron 1.9.35.3" /></a></div></div></div></body></html>
