@@ -28,3 +28,6 @@ tags:
 - <https://www.stephendiehl.com/posts/decade.html>
 - <https://www.47deg.com/blog/io-haskell>
 - <https://kowainik.github.io/posts/haskell-mini-patterns>
+- [_What I Wish I Knew When Learning Haskell_, Stephen Diehl][diehl]
+
+[diehl]: http://dev.stephendiehl.com/hask/
